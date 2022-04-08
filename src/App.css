@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+html,
+body {
+  font-family: "Poppins", sans-serif !important;
+  overflow-x: hidden;
+}
+p {
+  color: #7d7d7d;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  font-size: 14.5px;
+  font-family: "Rubik", sans-serif;
+}
+:root {
+  --main-color: #19ce67;
+  --light-color: #ffffff;
+  --dark-color: #121521;
+}
+
+a {
+  text-decoration: none !important;
+  color: #19ce67;
+  transition: .5s;
+}
+a:hover {
+  text-decoration: none;
+  color: #19ce67;
+}
+img{
+  width: 100%;
+  height: auto;
+}
+.primary-btn {
+  border: none;
+  line-height: initial;
+  text-transform: uppercase;
+  border-radius: 30px;
+  padding: 17px 50px 15.5px 25px;
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  background: #19ce67;
+  color: #ffffff !important;
+  cursor: pointer;
+  display: inline-block;
+}
+.primary-btn:hover,
+.secondary-btn:hover {
+  box-shadow: unset !important;
+  background: #121521 !important;
+  color: #ffffff !important;
+}
+.primary-btn i {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    display: inline-block;
+    height: 33px;
+    width: 33px;
+    line-height: 33px;
+    color: #ffffff;
+    border-radius: 50%;
+    background-color: #8ee9b2;
+    transition: 0.5s;
+}
+
+.primary-btn:hover i, .primary-btn:focus i {
+    background-color: #ffffff;
+    color: #121521;
+}
+.secondary-btn {
+  border: none;
+  line-height: initial;
+  text-transform: uppercase;
+  border-radius: 30px;
+  padding: 17px 50px 15.5px 25px;
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  background: #f9fafb;
+  color: #000000 !important;
+  cursor: pointer;
+}
+.main-btn {
+  background: var(--main-color) !important;
+  border: none !important;
+}
+h4 {
+  margin-bottom: 15px;
+  color: var(--main-color);
+  font-size: 17px !important;
+  font-family: "Rubik", sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+}
+
+.bg-f4f9fd {
+    background-color: #f4f9fd;
+}

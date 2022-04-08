@@ -1,0 +1,155 @@
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+.section-title span {
+    display: block;
+    margin-bottom: 5px;
+    color: #19ce67;
+    font-size: 17px;
+    font-family: "Rubik", sans-serif;
+}
+
+.section-title h2 {
+    margin-bottom: 0;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.section-title p {
+    max-width: 520px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-services-box {
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 10px 55px 5px rgb(137 173 255 / 20%);
+    box-shadow: 0 10px 55px 5px rgb(137 173 255 / 20%);
+    padding: 25px 20px;
+    position: relative;
+    z-index: 1;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.main-services-box:hover {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+}
+
+.main-services-box::before {
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #19ce67;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.main-services-box:hover::before {
+    width: 100%;
+}
+
+.main-services-box::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 10px solid #ffffff;
+    left: -80px;
+    bottom: -80px;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.15;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.main-services-box:hover::after {
+    left: -50px;
+    bottom: -50px;
+}
+
+.main-services-box .icon {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+    background-color: #19ce67;
+    color: #ffffff;
+    font-size: 25px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.main-services-box:hover .icon {
+    background-color: #49d685;
+    color: #ffffff;
+}
+
+.main-services-box img {
+    width: 35px;
+    height: 35px;
+}
+
+.main-services-box h3 {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    margin-bottom: 0;
+    position: relative;
+    padding-bottom: 5px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+.main-services-box h3::before {
+    width: 0;
+    height: 1px;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.main-services-box:hover h3::before {
+    width: 80px;
+}
+
+.main-services-box:hover h3 a {
+    color: #ffffff;
+}
+
+.main-services-box h3 a {
+    color: #121521;
+}
+
+.main-services-box p {
+    line-height: 1.7;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.main-services-box:hover p {
+    color: #ffffff;
+}

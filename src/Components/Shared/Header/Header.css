@@ -1,0 +1,36 @@
+.nav-menu a{
+    font-weight: 600;
+    color: var(--dark-color) !important;
+}
+
+.btn-form-btn{
+    background-color: var(--main-color);
+    color: var(--light-color);
+    border-radius: 20px;
+}
+
+.btn-form-btn:hover{
+    background: var(--dark-color);
+    color: var(--light-color);
+}
+
+.btn-form-btn i {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    display: inline-block;
+    height: 33px;
+    width: 33px;
+    line-height: 33px;
+    color: #ffffff;
+    border-radius: 50%;
+    background-color: #8ee9b2;
+    transition: 0.5s;
+}
+
+.btn-form-btn:hover i, .btn-form-btn:focus i {
+    background-color: #ffffff;
+    color: #121521;
+}

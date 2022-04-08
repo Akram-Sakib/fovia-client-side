@@ -1,0 +1,17 @@
+.service-section{
+    padding: 100px 0 80px 0;
+}
+.service-section h2{
+    font-size: 40px;
+    font-weight: 600;
+}
+.service-top p{
+    max-width: 520px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.service-top{
+    margin-bottom: 60px;
+}

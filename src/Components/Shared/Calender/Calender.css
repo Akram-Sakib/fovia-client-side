@@ -1,0 +1,10 @@
+.appointment-page .css-195y93z-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+    color: var(--dark-color);
+    background-color: var(--main-color);
+}
+
+.appointment-page .Mui-selected:hover {
+    will-change: background-color;
+    background-color: var(--main-color);
+}
+

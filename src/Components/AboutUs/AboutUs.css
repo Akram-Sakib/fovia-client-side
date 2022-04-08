@@ -1,0 +1,51 @@
+.about-section{
+    padding-bottom: 80px;
+}
+.about-image{
+    background-image: url("./../../Images/about-img1.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%
+}
+
+.about-content {
+    max-width: 555px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 50px;
+}
+
+.about-content h2 {
+    margin-bottom: 0;
+    line-height: 1.3;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.about-content ul{
+    padding: 0;
+    list-style: none;
+}
+.about-content li{
+    margin: 10px 0;
+}
+
+.about-content svg{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+    background-color: #d2f5e1;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.about-content li:hover svg{
+    color: #fff;
+    background: var(--main-color);
+}
