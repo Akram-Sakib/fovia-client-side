@@ -2,6 +2,7 @@ import { Button, IconButton, TableCell, TableRow } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import EditDataTableList from "../EditDataTableList/EditDataTableList";
+import EditFeedbackData from "../EditFeedbackData/EditFeedbackData";
 
 const FeedbackData = ({ fbk, setFeedback, feedbacks }) => {
   const [open, setOpen] = useState(false);
@@ -86,7 +87,7 @@ const FeedbackData = ({ fbk, setFeedback, feedbacks }) => {
           </IconButton>
         </TableCell>
       </TableRow>
-      <EditDataTableList
+      <EditFeedbackData
         doctors={fbk}
         click={{ open, handleClose, handleOpen }}
       />

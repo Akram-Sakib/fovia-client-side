@@ -1,13 +1,9 @@
 import {
   Alert,
   Button,
-  IconButton,
-  Input,
   TextField,
   Stack,
-  Typography
 } from "@mui/material";
-import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 
@@ -16,7 +12,6 @@ const AddDoctorDashBoard = () => {
   const [email, setEmail] = useState("");
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
-  const [signature, setSignature] = useState(null);
   const [description, setDescription] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -34,7 +29,6 @@ const AddDoctorDashBoard = () => {
     formData.append("email", email);
     formData.append("title", title);
     formData.append("image", image);
-    formData.append("signature", signature);
     formData.append("description", description);
 
     fetch("http://localhost:5000/doctors", {
@@ -97,24 +91,6 @@ const AddDoctorDashBoard = () => {
             <Button variant="contained" component="span">
               Doctors Pic
             </Button>
-          </label>
-          <label htmlFor="icon-button-file">
-            <Input
-              accept="image/*"
-              id="icon-button-file"
-              type="file"
-              onChange={(e) => setSignature(e.target.files[0])}
-            />
-            <IconButton
-              color="primary"
-              aria-label="upload picture"
-              component="span"
-            >
-              <Typography variant="h6" sx={{ marginRight: "5px" }}>
-                Add Signature
-              </Typography>
-              <PhotoCamera />
-            </IconButton>
           </label>
         </Stack>
         <br />

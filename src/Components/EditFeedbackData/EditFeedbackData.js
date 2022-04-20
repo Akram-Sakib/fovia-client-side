@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -16,30 +16,29 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 500,
-  height:600,
+  height: 600,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-  overflow:"scroll"
+  overflow: "scroll",
 };
 
-
-const EditDataTableList = ({ click,doctors }) => {
+const EditFeedbackData = ({ click, doctors }) => {
   const { open, handleClose, handleOpen } = click;
-  
-  const { _id,name, title, email, image, description } = doctors;
-  
-  const [updName, setupdName] = useState(name);
-  const [updEmail, setupdEmail] = useState(email);
-  const [updTitle, setupdTitle] = useState(title);
-  const [updPic, setUpdPic] = useState(image);
-  const [updDescription, setupdDescription] = useState(description);
+
+  const { _id, name, title, image, feedback } = doctors;
+
+  const [feedbackName, setfeedbackName] = useState(name);
+  const [feedbackTitle, setfeedbackTitle] = useState(title);
+  const [feedbackPicture, setfeedbackPicture] = useState(image);
+  const [_feedback, setfeedback] = useState(feedback);
+ 
 
   const onChangePicture = (e) => {
     if (e.target.files[0]) {
+    setfeedbackPicture(e.target.files[0]);
       console.log("picture: ", e.target.files);
-      setUpdPic(e.target.files[0]);
       const reader = new FileReader();
       reader.addEventListener("load", () => {
         setImgData(reader.result);
@@ -47,22 +46,21 @@ const EditDataTableList = ({ click,doctors }) => {
       reader.readAsDataURL(e.target.files[0]);
     }
   };
-  
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
-    
-    const formData = new FormData();
-    
-    formData.append("id",_id);
-    formData.append("name",updName);
-    formData.append("email",updEmail);
-    formData.append("title",updTitle);
-    formData.append("image",updPic);
-    formData.append("description",updDescription);
-    formData.append("email",updEmail);
 
-    fetch("http://localhost:5000/doctors", {
+    const formData = new FormData();
+
+    formData.append("id", _id);
+    formData.append("name", feedbackName);
+    formData.append("title", feedbackTitle);
+    formData.append("image", feedbackPicture);
+    formData.append("feedback", _feedback);
+
+    console.log(formData);
+    
+    fetch("http://localhost:5000/feedback", {
       method: "PUT",
       body: formData,
     })
@@ -78,10 +76,7 @@ const EditDataTableList = ({ click,doctors }) => {
 
   };
 
-  const [imgData, setImgData] = useState(
-    `data:image/jpeg;base64,${image}`
-  );
-
+  const [imgData, setImgData] = useState(`data:image/jpeg;base64,${image}`);
 
   return (
     <>
@@ -132,7 +127,7 @@ const EditDataTableList = ({ click,doctors }) => {
               id="outlined-size-small"
               defaultValue={name}
               name="name"
-              onBlur={(e) => setupdName(e.target.value)}
+              onBlur={(e) => setfeedbackName(e.target.value)}
               size="small"
               sx={{ width: "100%", m: 1 }}
             />
@@ -140,28 +135,21 @@ const EditDataTableList = ({ click,doctors }) => {
               id="outlined-size-small"
               defaultValue={title}
               name="title"
-              onBlur={(e) => setupdTitle(e.target.value)}
-              size="small"
-              sx={{ width: "100%", m: 1 }}
-            />
-            <TextField
-              id="outlined-size-small"
-              defaultValue={email}
-              name="email"
-              onBlur={(e) => setupdEmail(e.target.value)}
+              onBlur={(e) => setfeedbackTitle(e.target.value)}
               size="small"
               sx={{ width: "100%", m: 1 }}
             />
             <TextField
               id="outlined-multiline-static"
               label="Multiline"
-              name="description"
+              name="feedback"
               multiline
               rows={4}
-              defaultValue={description}
-              onBlur={(e) => setupdDescription(e.target.value)}
+              defaultValue={feedback}
+              onBlur={(e) => setfeedback(e.target.value)}
               sx={{ width: "100%", m: 1 }}
             />
+
             <Button type="submit" sx={{ m: 1 }} variant="contained">
               Update
             </Button>
@@ -172,4 +160,4 @@ const EditDataTableList = ({ click,doctors }) => {
   );
 };
 
-export default EditDataTableList;
+export default EditFeedbackData;

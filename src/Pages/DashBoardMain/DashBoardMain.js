@@ -27,6 +27,51 @@ function DashBoardMain(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const {admin} = useAuth();
 
+  const arr = [
+    {
+      id: 1,
+      pathName: "/appointment",
+      name: "Appointment",
+      icon: <InboxIcon />,
+    },
+    {
+      id: 2,
+      pathName: "/dashboard",
+      name: "Dashboard",
+      icon: <MailIcon />,
+    },
+    {
+      id: 3,
+      pathName: "/dashboard/makeadmin",
+      name: "Make Admin",
+      icon: <InboxIcon />,
+    },
+    {
+      id: 4,
+      pathName: "/dashboard/addDoctor",
+      name: "Add Doctor",
+      icon: <MailIcon />,
+    },
+    {
+      id: 5,
+      pathName: "/dashboard/doctorslist",
+      name: "Appointment",
+      icon: <InboxIcon />,
+    },
+    {
+      id: 6,
+      pathName: "/dashboard/addfeedback",
+      name: "Dashboard",
+      icon: <MailIcon />,
+    },
+    {
+      id: 7,
+      pathName: "/dashboard/allFeedBack",
+      name: "Make Admin",
+      icon: <InboxIcon />,
+    },
+  ];
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -61,14 +106,16 @@ function DashBoardMain(props) {
         <Button color="inherit">All FeedBack</Button>
       </Link>
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {arr.map(
+          (text, index) => (
+            <Link to={text.pathName}>
+              <ListItem button key={text.id}>
+                <ListItemIcon>{text.icon}</ListItemIcon>
+                <ListItemText primary={text.name} />
+              </ListItem>
+            </Link>
+          )
+        )}
       </List>
     </div>
   );

@@ -36,7 +36,7 @@ const DoctorDetails = () => {
                 <h3>{doctor.name}</h3>
                 <span>{doctor.title}</span>
 
-                <ul className="social">
+                {/* <ul className="social">
                   <li>
                     <a href="/#">
                       <i className="fab fa-facebook-f"></i>
@@ -57,7 +57,7 @@ const DoctorDetails = () => {
                       <i className="fab fa-instagram"></i>
                     </a>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
 

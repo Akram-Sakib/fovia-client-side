@@ -38,6 +38,7 @@ const BookingModal = ({
   };
 
   const [bookingInfo, setBookingInfo] = useState(initialInfo);
+  
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;

@@ -20,7 +20,7 @@ const Doctor = ({doctor}) => {
           </h3>
           <span>{title}</span>
 
-          <ul className="social">
+          {/* <ul className="social">
             <li>
               <a href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -41,7 +41,7 @@ const Doctor = ({doctor}) => {
                 <i className="fab fa-instagram"></i>
               </a>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     );
