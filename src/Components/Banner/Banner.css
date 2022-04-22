@@ -14,9 +14,9 @@
   margin-bottom: 20px;
 }
 .carousel-img {
-  width: 100vw;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
   height: 100vh;
 }
 .carousel-div {
@@ -35,7 +35,9 @@
   background-image: url(./../../Images/BannerImage/main-banner3.jpg);
 }
 @media only screen and (min-width: 992px) {
-    
+    .carousel-img{
+      width: 100px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -45,6 +47,9 @@
   .primary-btn {
     padding: 8px 10px 8px 10px;
     font-size: 10px;
+  }
+  .primary-btn i{
+    display: none;
   }
   .secondary-btn {
     padding: 8px 10px 8px 10px;

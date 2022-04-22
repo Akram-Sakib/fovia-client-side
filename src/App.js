@@ -23,96 +23,121 @@ import Contact from "./Pages/Contact/Contact";
 import DoctorsList from "./Components/DoctorsList/DoctorsList";
 import AddFeedBack from "./Components/AddFeedBack/AddFeedBack";
 import FeedbackList from "./Components/FeedbackList/FeedbackList";
+import { createTheme, ThemeProvider } from '@mui/material';
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: "#757ce8",
+      main: "#19ce67",
+      dark: "#19ce67",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "#ffffff",
+      main: "#000000",
+      dark: "#000",
+      contrastText: "#000",
+    },
+  },
+  
+});
 
 
 function App() {
 
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/appointment"
-            element={
-              <RequiredAuth>
-                <AppointmentPage />
-              </RequiredAuth>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <RequiredAuth>
-                <DashBoardMain />
-              </RequiredAuth>
-            }
-          />
-          <Route exact path="/dashboard" element={<DashBoardMain />}>
-            <Route exact path="/dashboard" element={<DashBoardHome />} />
+    <ThemeProvider theme={theme}>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route
-              exact
-              path="/dashboard/makeadmin"
-              element={
-                <AdminRoute>
-                  <MakeAdmin />
-                </AdminRoute>
-              }
-            />
-            <Route
-              exact
-              path="/dashboard/addDoctor"
-              element={
-                <AdminRoute>
-                  <AddDoctorDashBoard />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="/dashboard/doctorslist"
-              exact
-              element={
-                <AdminRoute>
-                  <DoctorsList />
-                </AdminRoute>
-              }
-            />
-            <Route
-              exact
-              path="/dashboard/addfeedback"
+              path="/appointment"
               element={
                 <RequiredAuth>
-                  <AddFeedBack />
+                  <AppointmentPage />
                 </RequiredAuth>
               }
             />
             <Route
-              exact
-              path="/dashboard/allfeedback"
+              path="/dashboard"
               element={
                 <RequiredAuth>
-                  <FeedbackList />
+                  <DashBoardMain />
                 </RequiredAuth>
               }
             />
-          </Route>
-          <Route
-            path="/hospital-details/:detailsId"
-            element={
-              <RequiredAuth>
-                <HospitalDetails></HospitalDetails>
-              </RequiredAuth>
-            }
-          />
-          <Route path="/doctor/:id" element={<DoctorDetails />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login></Login>} />
-          <Route path="/registration" element={<Registration></Registration>} />
-          <Route path="*" element={<NotFound></NotFound>} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+            <Route exact path="/dashboard" element={<DashBoardMain />}>
+              <Route exact path="/dashboard" element={<DashBoardHome />} />
+              <Route
+                exact
+                path="/dashboard/makeadmin"
+                element={
+                  <AdminRoute>
+                    <MakeAdmin />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                exact
+                path="/dashboard/addDoctor"
+                element={
+                  <AdminRoute>
+                    <AddDoctorDashBoard />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/doctorslist"
+                exact
+                element={
+                  <AdminRoute>
+                    <DoctorsList />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                exact
+                path="/dashboard/addfeedback"
+                element={
+                  <RequiredAuth>
+                    <AddFeedBack />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                exact
+                path="/dashboard/allfeedback"
+                element={
+                  <RequiredAuth>
+                    <FeedbackList />
+                  </RequiredAuth>
+                }
+              />
+            </Route>
+            <Route
+              path="/hospital-details/:detailsId"
+              element={
+                <RequiredAuth>
+                  <HospitalDetails></HospitalDetails>
+                </RequiredAuth>
+              }
+            />
+            <Route path="/doctor/:id" element={<DoctorDetails />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login></Login>} />
+            <Route
+              path="/registration"
+              element={<Registration></Registration>}
+            />
+            <Route path="*" element={<NotFound></NotFound>} />
+          </Routes>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

@@ -153,3 +153,13 @@
 .main-services-box:hover p {
     color: #ffffff;
 }
+
+@media only screen and (max-width: 900px) {
+    .main-services-box{
+        text-align: center;
+    }
+    .main-services-box .icon{
+      margin: 0 auto;
+      margin-bottom: 20px !important;
+    }
+}

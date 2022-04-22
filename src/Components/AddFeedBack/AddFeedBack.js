@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import {
-  Alert,
   Button,
-  IconButton,
   Input,
   TextField,
   Stack,
-  Typography,
 } from "@mui/material";
-import PhotoCamera from "@mui/icons-material/PhotoCamera";
 
 const AddFeedBack = () => {
 
@@ -47,10 +43,10 @@ const AddFeedBack = () => {
 
     return (
       <div className="text-center my-5">
-        <h2 className="mb-5">Add Feedback</h2>
+        <h2 className="mb-5 text-lg-start text-sm-center">Add Feedback</h2>
         <form onSubmit={handleSubmit} className="text-start">
           <TextField
-            sx={{ width: "50%" }}
+            sx={{ width: { xs: "100%", sm: "100%", md: "50%" } }}
             label="Name"
             variant="standard"
             required
@@ -59,7 +55,7 @@ const AddFeedBack = () => {
           <br />
           <TextField
             required
-            sx={{ width: "50%" }}
+            sx={{ width: { xs: "100%", sm: "100%", md: "50%" } }}
             label="Title"
             variant="standard"
             onBlur={(e) => setTitle(e.target.value)}
@@ -85,7 +81,7 @@ const AddFeedBack = () => {
             label="Feedback"
             multiline
             rows={8}
-            sx={{ width: "50%" }}
+            sx={{ width: { xs: "100%", sm: "100%", md: "50%" } }}
             onBlur={(e) => setFeedback(e.target.value)}
           />
           <br />

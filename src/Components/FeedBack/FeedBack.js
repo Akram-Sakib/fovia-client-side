@@ -10,72 +10,72 @@ import clientImg3 from "./../../Images/Clients/clients3.jpg";
 import clientImg4 from "./../../Images/Clients/clients4.jpg";
 import clientImg5 from "./../../Images/Clients/clients5.jpg";
 
-const ClientFeedback = [
-  {
-    id: 1,
-    img: clientImg1,
-    name: "John Lucy",
-    title: "Founding Partner",
-    feedback:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacusvel facilisis.",
-  },
-  {
-    id: 2,
-    img: clientImg2,
-    name: "John Smith",
-    title: "Web Developer",
-    feedback:
-      "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
-  },
-  {
-    id: 3,
-    img: clientImg3,
-    name: "Maxwel Warner",
-    title: "Web Designer",
-    feedback:
-      "Lorem ipsum dolor sit amet, consectetur adipiscingelit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacus vel facilisis",
-  },
-  {
-    id: 4,
-    img: clientImg4,
-    name: "Ross Taylor",
-    title: "Patient",
-    feedback:
-      "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
-  },
-  {
-    id: 5,
-    img: clientImg5,
-    name: "James Anderson",
-    title: "CEO",
-    feedback:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacusvel facilisis.",
-  },
-  {
-    id: 6,
-    img: clientImg1,
-    name: "Steven Smith",
-    title: "Manager",
-    feedback:
-      "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
-  },
-  {
-    id: 7,
-    img: clientImg2,
-    name: "Steven Lucy",
-    title: "Patient",
-    feedback:
-      "Lorem ipsum dolor sit amet, consectetur adipiscingelit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
-  },
-  {
-    id: 8,
-    img: clientImg3,
-    name: "John Terry",
-    title: "Patient",
-    feedback:
-      "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
-  },
-];
+// const ClientFeedback = [
+//   {
+//     id: 1,
+//     img: clientImg1,
+//     name: "John Lucy",
+//     title: "Founding Partner",
+//     feedback:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacusvel facilisis.",
+//   },
+//   {
+//     id: 2,
+//     img: clientImg2,
+//     name: "John Smith",
+//     title: "Web Developer",
+//     feedback:
+//       "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
+//   },
+//   {
+//     id: 3,
+//     img: clientImg3,
+//     name: "Maxwel Warner",
+//     title: "Web Designer",
+//     feedback:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscingelit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacus vel facilisis",
+//   },
+//   {
+//     id: 4,
+//     img: clientImg4,
+//     name: "Ross Taylor",
+//     title: "Patient",
+//     feedback:
+//       "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
+//   },
+//   {
+//     id: 5,
+//     img: clientImg5,
+//     name: "James Anderson",
+//     title: "CEO",
+//     feedback:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacusvel facilisis.",
+//   },
+//   {
+//     id: 6,
+//     img: clientImg1,
+//     name: "Steven Smith",
+//     title: "Manager",
+//     feedback:
+//       "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
+//   },
+//   {
+//     id: 7,
+//     img: clientImg2,
+//     name: "Steven Lucy",
+//     title: "Patient",
+//     feedback:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscingelit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+//   },
+//   {
+//     id: 8,
+//     img: clientImg3,
+//     name: "John Terry",
+//     title: "Patient",
+//     feedback:
+//       "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
+//   },
+// ];
 
 
 const FeedBack = () => {
@@ -91,23 +91,45 @@ useEffect(() => {
     .then((data) => setFeedback(data));
 }, []);
 
-console.log(feedback);
-
-  const settings1 = {
+  const settings_1 = {
     className: "slick-center",
     centerMode: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     centerPadding: "5px",
+    slidesToShow: feedback.length > 5 ? 5 : feedback.length,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
-  const settings2 = {
+  const settings_2 = {
     fade: true,
-    dots: true,
-    arrows: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
+    speed: 900,
+    slidesToShow: feedback.length > 5 ? 5 : feedback.length,
     slidesToScroll: 1,
     autoplay: true,
   };
@@ -132,11 +154,11 @@ console.log(feedback);
                   asNavFor={nav2}
                   slidesToShow={5}
                   ref={(slider1) => setNav1(slider1)}
-                  {...settings1}
+                  {...settings_1}
                 >
                   {feedback.map((data) => {
                     return (
-                      <div className="item">
+                      <div className="item" key={data._id}>
                         <div className="img-fill">
                           <img
                             src={`data:image/jpeg;base64,${data?.image}`}
@@ -160,11 +182,11 @@ console.log(feedback);
                   slidesToShow={1}
                   swipeToSlide={true}
                   focusOnSelect={true}
-                  {...settings2}
+                  {...settings_2}
                 >
                   {feedback.map((data) => {
                     return (
-                      <div className="item">
+                      <div className="item" key={data._id}>
                         <div className="single-feedback">
                           <h3>{data.name}</h3>
                           <span>{data.title}</span>
@@ -175,14 +197,6 @@ console.log(feedback);
                   })}
                 </Slider>
               </div>
-
-              {/* <button className="prev-arrow slick-arrow">
-                <i className="flaticon-left-arrow"></i>
-              </button>
-
-              <button className="next-arrow slick-arrow">
-                <i className="flaticon-arrow-pointing-to-right"></i>
-              </button> */}
             </div>
           </div>
         </div>

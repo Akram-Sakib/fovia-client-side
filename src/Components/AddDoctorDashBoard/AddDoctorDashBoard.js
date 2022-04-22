@@ -48,15 +48,11 @@ const AddDoctorDashBoard = () => {
 
   return (
     <div className="text-center my-5">
-      {success && (
-        <Alert severity="success">
-          Doctor Added Successfully
-        </Alert>
-      )}
-      <h2 className="mb-5">Add Doctor</h2>
+      {success && <Alert severity="success">Doctor Added Successfully</Alert>}
+      <h2 className="mb-5 text-lg-start text-sm-center">Add Doctor</h2>
       <form onSubmit={handleSubmit} className="text-start">
         <TextField
-          sx={{ width: "50%" }}
+          sx={{ width: { sm: "100%", md: "50%" } }}
           label="Name"
           variant="standard"
           required
@@ -65,7 +61,7 @@ const AddDoctorDashBoard = () => {
         <br />
         <TextField
           required
-          sx={{ width: "50%" }}
+          sx={{ width: { sm: "100%", md: "50%" } }}
           label="Email"
           variant="standard"
           onChange={(e) => setEmail(e.target.value)}
@@ -73,7 +69,7 @@ const AddDoctorDashBoard = () => {
         <br />
         <TextField
           required
-          sx={{ width: "50%" }}
+          sx={{ width: { sm: "100%", md: "50%" } }}
           label="Title"
           variant="standard"
           onChange={(e) => setTitle(e.target.value)}
@@ -99,7 +95,7 @@ const AddDoctorDashBoard = () => {
           label="Descrition"
           multiline
           rows={8}
-          sx={{ width: "50%" }}
+          sx={{ width: { sm: "100%", md: "50%" } }}
           onChange={(e) => setDescription(e.target.value)}
         />
         <br />

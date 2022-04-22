@@ -15,10 +15,18 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import BookOnlineIcon from "@mui/icons-material/BookOnline";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
+import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
+import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
 import { Button } from "@mui/material";
 import { Outlet, Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 // import your route components too
+import logo from "./../../Images/logo.png";
 
 const drawerWidth = 200;
 
@@ -32,43 +40,47 @@ function DashBoardMain(props) {
       id: 1,
       pathName: "/appointment",
       name: "Appointment",
-      icon: <InboxIcon />,
+      icon: <BookOnlineIcon />,
     },
     {
       id: 2,
       pathName: "/dashboard",
       name: "Dashboard",
-      icon: <MailIcon />,
+      icon: <DashboardIcon />,
     },
     {
       id: 3,
       pathName: "/dashboard/makeadmin",
       name: "Make Admin",
-      icon: <InboxIcon />,
+      icon: <AdminPanelSettingsIcon />,
+      role: "admin",
     },
     {
       id: 4,
       pathName: "/dashboard/addDoctor",
       name: "Add Doctor",
-      icon: <MailIcon />,
+      icon: <LocalHospitalOutlinedIcon />,
+      role: "admin",
     },
     {
       id: 5,
       pathName: "/dashboard/doctorslist",
-      name: "Appointment",
-      icon: <InboxIcon />,
+      name: "Doctorslist",
+      icon: <LocalHospitalIcon />,
+      role: "admin",
     },
     {
       id: 6,
       pathName: "/dashboard/addfeedback",
-      name: "Dashboard",
-      icon: <MailIcon />,
+      name: "Add Feedback",
+      icon: <FeedbackOutlinedIcon />,
     },
     {
       id: 7,
       pathName: "/dashboard/allFeedBack",
-      name: "Make Admin",
-      icon: <InboxIcon />,
+      name: "All Feedback",
+      icon: <InsertCommentOutlinedIcon />,
+      role: "admin",
     },
   ];
 
@@ -76,46 +88,34 @@ function DashBoardMain(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const filter = arr.filter(role => role.role === arr.role);
+
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar>
+        <Link to="/">
+          <img src={logo} alt="" />
+        </Link>
+      </Toolbar>
       <Divider />
-      <Link to="/appointment">
-        <Button color="inherit">Appointment</Button>
-      </Link>
-      <Link to="/dashboard">
-        <Button color="inherit">Dashboard</Button>
-      </Link>
-      {admin && (
-        <Box>
-          <Link to="/dashboard/makeadmin">
-            <Button color="inherit">Make Admin</Button>
-          </Link>
-          <Link to="/dashboard/addDoctor">
-            <Button color="inherit">Add Doctor</Button>
-          </Link>
-          <Link to="/dashboard/doctorslist">
-            <Button color="inherit">All Doctors</Button>
-          </Link>
-        </Box>
-      )}
-      <Link to="/dashboard/addfeedback">
-        <Button color="inherit">Add Feedback</Button>
-      </Link>
-      <Link to="/dashboard/allFeedBack">
-        <Button color="inherit">All FeedBack</Button>
-      </Link>
       <List>
-        {arr.map(
-          (text, index) => (
-            <Link to={text.pathName}>
-              <ListItem button key={text.id}>
-                <ListItemIcon>{text.icon}</ListItemIcon>
-                <ListItemText primary={text.name} />
-              </ListItem>
-            </Link>
-          )
-        )}
+        {admin
+          ? arr.map((menu) => (
+              <Link to={menu.pathName}>
+                <ListItem button key={menu.id}>
+                  <ListItemIcon>{menu.icon}</ListItemIcon>
+                  <ListItemText secondary={menu.name} />
+                </ListItem>
+              </Link>
+            ))
+          : filter.map((menu) => (
+              <Link to={menu.pathName}>
+                <ListItem button key={menu.id}>
+                  <ListItemIcon>{menu.icon}</ListItemIcon>
+                  <ListItemText secondary={menu.name} />
+                </ListItem>
+              </Link>
+            ))}
       </List>
     </div>
   );

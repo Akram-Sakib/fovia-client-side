@@ -7,11 +7,28 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const DashboardAppointment = ({date}) => {
+  
   const { user,token } = useAuth();
   const [appointments, setAppointments] = useState([]);
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/appointments/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          alert("Data Deleted Successfully");
+          const newData = appointments.filter((del) => del._id !== id);
+          setAppointments(newData);
+        }
+      });
+  };
 
   useEffect(() => {
     const url = `http://localhost:5000/appointments?email=${
@@ -28,7 +45,7 @@ const DashboardAppointment = ({date}) => {
 
   return (
     <div>
-      <h2>Appointments: {appointments.length}</h2>
+      <h2 className="text-center mb-4">Appointments: {appointments.length}</h2>
       <TableContainer component={Paper}>
         <Table sx={{}} aria-label="simple table">
           <TableHead>
@@ -36,7 +53,7 @@ const DashboardAppointment = ({date}) => {
               <TableCell>Name</TableCell>
               <TableCell align="right">Time</TableCell>
               <TableCell align="right">Service</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell align="right">Remove</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -50,7 +67,14 @@ const DashboardAppointment = ({date}) => {
                 </TableCell>
                 <TableCell align="right">{row.time}</TableCell>
                 <TableCell align="right">{row.serviceName}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
+                <TableCell align="right">
+                  <IconButton aria-label="delete" size="large">
+                    <DeleteIcon
+                      onClick={() => handleDelete(row._id)}
+                      fontSize="inherit"
+                    />
+                  </IconButton>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

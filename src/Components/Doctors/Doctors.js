@@ -4,13 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import doctorImg1 from "./../../Images/Doctors/Doctor1.jpg";
-import doctorImg2 from "./../../Images/Doctors/Doctor2.jpg";
-import doctorImg3 from "./../../Images/Doctors/Doctor3.jpg";
-import doctorImg4 from "./../../Images/Doctors/Doctor4.jpg";
-import doctorImg5 from "./../../Images/Doctors/Doctor5.jpg";
-
-import { Link } from "react-router-dom";
 import Doctor from "../Doctor/Doctor";
 
 const Doctors = () => {
@@ -23,14 +16,40 @@ const Doctors = () => {
   }, []);
 
 
-  const settings = {
+  const settings_1 = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: doctors.length > 4 ? 4 : doctors.length,
     slidesToScroll: 1,
     autoplay: true,
     infinite: true,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -46,11 +65,13 @@ const Doctors = () => {
         </div>
 
         <div className="doctor-slides">
-          <Slider {...settings}>
-            {doctors.map((doctor) => (
-              <Doctor doctor={doctor} key={doctor._id}/>
-            ))}
-          </Slider>
+          <div className="row">
+            <Slider {...settings_1}>
+              {doctors.map((doctor) => (
+                <Doctor doctor={doctor} key={doctor._id} />
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
     </section>

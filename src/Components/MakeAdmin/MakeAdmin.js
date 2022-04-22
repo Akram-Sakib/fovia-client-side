@@ -1,4 +1,4 @@
-import { Alert, Button, TextField } from "@mui/material";
+import { Alert, Button, Divider, TextField } from "@mui/material";
 import React, { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 
@@ -35,7 +35,7 @@ const MakeAdmin = () => {
   };
 
   return (
-    <div>
+    <div className="text-center">
       <h2>Make An Admin</h2>
       <form onSubmit={handleAdminSubmit}>
         <TextField
@@ -43,16 +43,16 @@ const MakeAdmin = () => {
           type="email"
           onBlur={handleOnBlur}
           id="standard-basic"
-          label="Standard"
+          label="Email"
           variant="standard"
         />
+        <br />
+        <br />
         <Button type="submit" variant="contained">
           Make Admin
         </Button>
       </form>
-      {success && (
-        <Alert severity="success">Made Admin Successfully!</Alert>
-      )}
+      {success && <Alert severity="success">Made Admin Successfully!</Alert>}
     </div>
   );
 };
