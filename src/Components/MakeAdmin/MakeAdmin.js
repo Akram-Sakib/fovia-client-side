@@ -1,21 +1,21 @@
-import { Alert, Button, Divider, TextField } from "@mui/material";
-import React, { useState } from "react";
+import { Button, TextField } from "@mui/material";
+import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import { Toaster, toast } from "react-hot-toast";
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
-  const [success, setSuccess] = useState(false);
-  const {token} = useAuth();
+  const { token } = useAuth();
 
-    const handleOnBlur = (e) => {
-        setEmail(e.target.value);
-    }
+  const handleOnBlur = (e) => {
+    setEmail(e.target.value);
+  };
 
   const handleAdminSubmit = (e) => {
-    const user = {email};
+    const user = { email };
     console.log(user);
 
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://fovia.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,
@@ -28,14 +28,17 @@ const MakeAdmin = () => {
         if (data.modifiedCount) {
           console.log(data);
           setEmail("");
-          setSuccess(true);
+          toast.success("Made Admin Successfully!");
+        }else{
+          toast.error("Failed to make admin!");
         }
-      });
-      e.preventDefault();
+      }).catch(err=>toast.error("Failed to make admin!"));
+    e.preventDefault();
   };
 
   return (
     <div className="text-center">
+      <Toaster position="top-right" reverseOrder={false} />
       <h2>Make An Admin</h2>
       <form onSubmit={handleAdminSubmit}>
         <TextField
@@ -52,7 +55,6 @@ const MakeAdmin = () => {
           Make Admin
         </Button>
       </form>
-      {success && <Alert severity="success">Made Admin Successfully!</Alert>}
     </div>
   );
 };

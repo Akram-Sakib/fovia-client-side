@@ -1,11 +1,9 @@
-import React from "react";
 import "./Partners.css";
 
 import partnerImg1 from "./../../Images/Partners/partner1.png";
 import partnerImg2 from "./../../Images/Partners/partner2.png";
 import partnerImg3 from "./../../Images/Partners/partner3.png";
-import partnerImg4 from "./../../Images/Partners/partner5.png";
-import partnerImg5 from "./../../Images/Partners/partner5.png";
+import { default as partnerImg4, default as partnerImg5 } from "./../../Images/Partners/partner5.png";
 import partnerImg6 from "./../../Images/Partners/partner6.png";
 import partnerImg7 from "./../../Images/Partners/partner7.png";
 import partnerImg8 from "./../../Images/Partners/partner8.png";
@@ -25,56 +23,56 @@ const Partners = () => {
 
         <div className="customers-partner-list">
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg1} alt="image" />
+            <a href="/#">
+              <img src={partnerImg1} alt="Partner Pic" />
             </a>
           </div>
 
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg2} alt="image" />
+            <a href="/#">
+              <img src={partnerImg2} alt="Partner Pic" />
             </a>
           </div>
 
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg3} alt="image" />
+            <a href="/#">
+              <img src={partnerImg3} alt="Partner Pic" />
             </a>
           </div>
 
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg4} alt="image" />
+            <a href="/#">
+              <img src={partnerImg4} alt="Partner Pic" />
             </a>
           </div>
 
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg5} alt="image" />
+            <a href="/#">
+              <img src={partnerImg5} alt="Partner Pic" />
             </a>
           </div>
 
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg6} alt="image" />
+            <a href="/#">
+              <img src={partnerImg6} alt="Partner Pic" />
             </a>
           </div>
 
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg7} alt="image" />
+            <a href="/#">
+              <img src={partnerImg7} alt="Partner Pic" />
             </a>
           </div>
 
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg8} alt="image" />
+            <a href="/#">
+              <img src={partnerImg8} alt="Partner Pic" />
             </a>
           </div>
 
           <div className="partner-item">
-            <a href="#">
-              <img src={partnerImg9} alt="image" />
+            <a href="/#">
+              <img src={partnerImg9} alt="Partner Pic" />
             </a>
           </div>
         </div>

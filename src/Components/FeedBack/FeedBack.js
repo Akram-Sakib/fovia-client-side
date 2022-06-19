@@ -1,95 +1,21 @@
-import React, { useEffect, useState } from "react";
-import "./FeedBack.css";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import clientImg1 from "./../../Images/Clients/clients1.jpg";
-import clientImg2 from "./../../Images/Clients/clients2.jpg";
-import clientImg3 from "./../../Images/Clients/clients3.jpg";
-import clientImg4 from "./../../Images/Clients/clients4.jpg";
-import clientImg5 from "./../../Images/Clients/clients5.jpg";
-
-// const ClientFeedback = [
-//   {
-//     id: 1,
-//     img: clientImg1,
-//     name: "John Lucy",
-//     title: "Founding Partner",
-//     feedback:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacusvel facilisis.",
-//   },
-//   {
-//     id: 2,
-//     img: clientImg2,
-//     name: "John Smith",
-//     title: "Web Developer",
-//     feedback:
-//       "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
-//   },
-//   {
-//     id: 3,
-//     img: clientImg3,
-//     name: "Maxwel Warner",
-//     title: "Web Designer",
-//     feedback:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscingelit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacus vel facilisis",
-//   },
-//   {
-//     id: 4,
-//     img: clientImg4,
-//     name: "Ross Taylor",
-//     title: "Patient",
-//     feedback:
-//       "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
-//   },
-//   {
-//     id: 5,
-//     img: clientImg5,
-//     name: "James Anderson",
-//     title: "CEO",
-//     feedback:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacusvel facilisis.",
-//   },
-//   {
-//     id: 6,
-//     img: clientImg1,
-//     name: "Steven Smith",
-//     title: "Manager",
-//     feedback:
-//       "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
-//   },
-//   {
-//     id: 7,
-//     img: clientImg2,
-//     name: "Steven Lucy",
-//     title: "Patient",
-//     feedback:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscingelit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Quis ipsum suspendisse ultricesgravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
-//   },
-//   {
-//     id: 8,
-//     img: clientImg3,
-//     name: "John Terry",
-//     title: "Patient",
-//     feedback:
-//       "Risus commodo viverra maecenas accumsan lacus velfacilisis. Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
-//   },
-// ];
+import "slick-carousel/slick/slick.css";
+import "./FeedBack.css";
 
 
 const FeedBack = () => {
+  const [nav1, setNav1] = useState({});
+  const [nav2, setNav2] = useState({});
 
-const [nav1, setNav1] = useState({});
-const [nav2, setNav2] = useState({});
+  const [feedback, setFeedback] = useState([]);
 
-const [feedback, setFeedback] = useState([]);
-
-useEffect(() => {
-  fetch("http://localhost:5000/feedback")
-    .then((res) => res.json())
-    .then((data) => setFeedback(data));
-}, []);
+  useEffect(() => {
+    fetch("https://fovia.herokuapp.com/feedback")
+      .then((res) => res.json())
+      .then((data) => setFeedback(data));
+  }, []);
 
   const settings_1 = {
     className: "slick-center",
@@ -164,7 +90,7 @@ useEffect(() => {
                             src={`data:image/jpeg;base64,${data?.image}`}
                             // src={data.img}
                             alt="client"
-                            style={{width:"85px",height:"90px"}}
+                            style={{ width: "85px", height: "90px" }}
                           />
                         </div>
                       </div>

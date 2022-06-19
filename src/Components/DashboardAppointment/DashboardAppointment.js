@@ -10,28 +10,28 @@ import TableRow from "@mui/material/TableRow";
 import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
+import toast from "react-hot-toast";
 
-const DashboardAppointment = ({date}) => {
-  
-  const { user,token } = useAuth();
+const DashboardAppointment = ({ date }) => {
+  const { user, token } = useAuth();
   const [appointments, setAppointments] = useState([]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/appointments/${id}`, {
+    fetch(`https://fovia.herokuapp.com/appointments/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          alert("Data Deleted Successfully");
           const newData = appointments.filter((del) => del._id !== id);
           setAppointments(newData);
+          toast.success("Data Deleted Successfully!");
         }
       });
   };
 
   useEffect(() => {
-    const url = `http://localhost:5000/appointments?email=${
+    const url = `https://fovia.herokuapp.com/appointments?email=${
       user.email
     }&date=${date.toLocaleDateString()}`;
     fetch(url, {

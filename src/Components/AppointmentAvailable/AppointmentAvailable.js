@@ -1,5 +1,6 @@
-import { Container, Grid, Typography, Alert } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import Booking from '../Booking/Booking';
 
 const bookings = [
@@ -44,17 +45,17 @@ const bookings = [
 const AppointmentAvailable = ({ date }) => {
   const [bookingSucces, setBookingSuccess] = useState(false);
 
+
   return (
     <Container>
+      <Toaster position="top-right" reverseOrder={false} />
       <Typography
         variant="h3"
         sx={{ textAlign: "center", my: 3, color: "var(--dark-color)" }}
       >
         Available Appointments on {date.toDateString()}
       </Typography>
-      {bookingSucces && (
-        <Alert severity="success">Appointment Booked Successfully!</Alert>
-      )}
+      {bookingSucces && <h2>Hello</h2>}
       <Grid container spacing={2}>
         {bookings.map((booking) => (
           <Booking

@@ -1,14 +1,11 @@
-import React from 'react';
-
 import { Grid } from '@mui/material';
 
-import {  useNavigate } from 'react-router-dom';
 import "./Service.css";
 
-import serviceImg1 from "./../../Images/Services/doctor.png";
-import serviceImg2 from "./../../Images/Services/dental-chair.png";
-import serviceImg3 from "./../../Images/Services/care.png";
 import serviceImg4 from "./../../Images/Services/brain.png";
+import serviceImg3 from "./../../Images/Services/care.png";
+import serviceImg2 from "./../../Images/Services/dental-chair.png";
+import serviceImg1 from "./../../Images/Services/doctor.png";
 
 const Service = ({service}) => {
 

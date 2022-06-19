@@ -1,8 +1,9 @@
-import { Button, IconButton, TableCell, TableRow } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Button, IconButton, TableCell, TableRow } from "@mui/material";
+import { Box } from "@mui/system";
 import { useState } from "react";
-import EditDataTableList from "../EditDataTableList/EditDataTableList";
 import EditFeedbackData from "../EditFeedbackData/EditFeedbackData";
+import { Toaster, toast } from "react-hot-toast";
 
 const FeedbackData = ({ fbk, setFeedback, feedbacks }) => {
   const [open, setOpen] = useState(false);
@@ -13,15 +14,17 @@ const FeedbackData = ({ fbk, setFeedback, feedbacks }) => {
   const handleClose = () => setOpen(false);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/feedback/${id}`, {
+    fetch(`https://fovia.herokuapp.com/feedback/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          alert("Data Deleted Successfully");
+          toast.success("Feedback Removed successfully!");
           const newData = feedbacks.filter((del) => del._id !== id);
-          setFeedback(newData);
+          setFeedback(newData);      
+        }else{
+          toast.error("Failed to Remove feedback!");
         }
       });
   };
@@ -29,19 +32,20 @@ const FeedbackData = ({ fbk, setFeedback, feedbacks }) => {
   /* Checking github */
 
   const handleStatus = (id, status) => {
-    fetch(`http://localhost:5000/feedback/${id}?status=${status}`, {
+    fetch(`https://fovia.herokuapp.com/feedback/${id}?status=${status}`, {
       method: "POST",
     })
       .then((res) => res.json())
       .then((data) => {
-          if (data.modifiedCount) {
-            alert("Status Changed")
-          }
+        if (data.modifiedCount) {
+          alert("Status Changed");
+        }
       });
   };
 
   return (
     <>
+      <Toaster position="top-right" reverseOrder={true} />
       <TableRow
         key={fbk?._id}
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -53,7 +57,7 @@ const FeedbackData = ({ fbk, setFeedback, feedbacks }) => {
         <TableCell align="right">
           <img
             src={`data:image/jpeg;base64,${fbk?.image}`}
-            style={{ width: "60px" }}
+            style={{ width: "50px", height: "50px" }}
             alt=""
           />
         </TableCell>
@@ -76,15 +80,21 @@ const FeedbackData = ({ fbk, setFeedback, feedbacks }) => {
           )}
         </TableCell>
         <TableCell align="right">
-          <Button onClick={() => handleOpen(fbk?._id)} variant="contained">
-            Edit
-          </Button>
-          <IconButton aria-label="delete" size="large">
-            <DeleteIcon
-              onClick={() => handleDelete(fbk?._id)}
-              fontSize="inherit"
-            />
-          </IconButton>
+          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button
+              sx={{ height: "40px", margin: "auto 0" }}
+              onClick={() => handleOpen(fbk?._id)}
+              variant="contained"
+            >
+              Edit
+            </Button>
+            <IconButton aria-label="delete" size="large">
+              <DeleteIcon
+                onClick={() => handleDelete(fbk?._id)}
+                fontSize="inherit"
+              />
+            </IconButton>
+          </Box>
         </TableCell>
       </TableRow>
       <EditFeedbackData

@@ -1,4 +1,3 @@
-import React from 'react';
 import DataTableList from '../DataTableList/DataTableList';
         
 const DoctorsList = () => {

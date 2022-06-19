@@ -1,29 +1,29 @@
-import * as React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import PropTypes from "prop-types";
+import * as React from "react";
+
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
+
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import BookOnlineIcon from "@mui/icons-material/BookOnline";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
+import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
+import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import BookOnlineIcon from "@mui/icons-material/BookOnline";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import LocalHospitalOutlinedIcon from "@mui/icons-material/LocalHospitalOutlined";
-import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
-import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
-import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
-import { Button } from "@mui/material";
-import { Outlet, Link } from "react-router-dom";
+
+import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 // import your route components too
 import logo from "./../../Images/logo.png";
@@ -124,7 +124,7 @@ function DashBoardMain(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex",overflowX:'auto' }}>
       <CssBaseline />
       <AppBar
         position="fixed"

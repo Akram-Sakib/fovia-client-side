@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import AppointmentAvailable from "../../Components/AppointmentAvailable/AppointmentAvailable";
 import AppointmentCalender from "../../Components/AppointmentCalender/AppointmentCalender";

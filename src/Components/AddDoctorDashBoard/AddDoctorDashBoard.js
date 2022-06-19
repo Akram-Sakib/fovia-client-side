@@ -1,11 +1,11 @@
 import {
-  Alert,
   Button,
   TextField,
   Stack,
 } from "@mui/material";
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import { Toaster, toast } from "react-hot-toast";
 
 const AddDoctorDashBoard = () => {
   const [name, setName] = useState("");
@@ -13,7 +13,6 @@ const AddDoctorDashBoard = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
-  const [success, setSuccess] = useState(false);
 
   const Input = styled("input")({
     display: "none",
@@ -38,17 +37,19 @@ const AddDoctorDashBoard = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          setSuccess("Doctor Added Successfully");
+          toast.success("Doctor added successfully!");
+        }else{
+          toast.error("Failed to add Doctor!");
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        toast.error("Failed to add Doctor!");
       });
   };
 
   return (
     <div className="text-center my-5">
-      {success && <Alert severity="success">Doctor Added Successfully</Alert>}
+      <Toaster position="top-right" reverseOrder={true} />
       <h2 className="mb-5 text-lg-start text-sm-center">Add Doctor</h2>
       <form onSubmit={handleSubmit} className="text-start">
         <TextField

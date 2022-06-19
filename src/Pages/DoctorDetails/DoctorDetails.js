@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from "react";
-import "./DoctorDetails.css";
-import doctorImg from "./../../Images/Doctors/Doctor5.jpg";
-import doctorSignature from "./../../Images/Doctors/signature.png";
-import shape from "./../../Images/shape.png";
-import Header from "../../Components/Shared/Header/Header";
-import Footer from "../../Components/Shared/Footer/Footer";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import DoctorExperiance from "./../../Components/DoctorExperiance/DoctorExperiance";
+import Footer from "../../Components/Shared/Footer/Footer";
+import Header from "../../Components/Shared/Header/Header";
+import shape from "./../../Images/shape.png";
+import "./DoctorDetails.css";
 
 const DoctorDetails = () => {
+  const { id } = useParams();
 
-  const {id} = useParams();
-  
   const [doctor, setDoctor] = useState([]);
-  
+
   useEffect(() => {
-    fetch(`http://localhost:5000/doctors/${id}`)
+    fetch(`https://fovia.herokuapp.com/doctors/${id}`)
       .then((res) => res.json())
       .then((data) => setDoctor(data));
   }, [id]);
-  
+
   return (
     <>
       <Header />
@@ -30,7 +26,7 @@ const DoctorDetails = () => {
               <div className="doctor-details-image">
                 <img
                   src={`data:image/jpeg;base64,${doctor.image}`}
-                  alt="image"
+                  alt="Doctor Pic"
                 />
 
                 <h3>{doctor.name}</h3>
@@ -66,13 +62,13 @@ const DoctorDetails = () => {
                 <h2>Hello i’m {doctor.name} Introducing My Self.</h2>
 
                 <p>{doctor.description}</p>
-
+{/* 
                 <div className="signature-image">
                   <img
                     src={`data:image/jpeg;base64,${doctor.signatureImg}`}
                     alt="signature"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -80,7 +76,7 @@ const DoctorDetails = () => {
           {/* <DoctorExperiance/>   */}
         </div>
         <div className="shape3">
-          <img src={shape} className="wow fadeInLeft" alt="image" />
+          <img src={shape} className="wow fadeInLeft" alt="Shape" />
         </div>
       </section>
       <Footer />

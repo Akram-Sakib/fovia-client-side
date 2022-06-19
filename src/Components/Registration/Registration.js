@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import graphicImage from "./../../Images/graphic4.svg";
+import graphicImage from "./../../Images/login-page.jpg";
 import whiteLogo from "./../../Images/white-logo.png";
 
 const Registration = () => {
@@ -69,10 +69,10 @@ const Registration = () => {
                   </div>
                   <div className="page-links">
                     <Link to="/login">
-                      <span className="active">Login</span>
+                      <button class="custom-btn btn-1 active">Login</button>
                     </Link>
                     <Link to="/registration">
-                      <span>Register</span>
+                      <button class="custom-btn btn-1">Register</button>
                     </Link>
                   </div>
                   <form onSubmit={handleSubmit}>

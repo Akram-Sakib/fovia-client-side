@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import { Button, TextField, IconButton } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import { Button, IconButton, TextField } from "@mui/material";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import { useState } from "react";
 
 const Input = styled("input")({
   display: "none",
@@ -16,20 +16,19 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 500,
-  height:600,
+  height: 600,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-  overflow:"scroll"
+  overflow: "scroll",
 };
 
+const EditDataTableList = ({ click, doctors }) => {
+  const { open, handleClose } = click;
 
-const EditDataTableList = ({ click,doctors }) => {
-  const { open, handleClose, handleOpen } = click;
-  
-  const { _id,name, title, email, image, description } = doctors;
-  
+  const { _id, name, title, email, image, description } = doctors;
+
   const [updName, setupdName] = useState(name);
   const [updEmail, setupdEmail] = useState(email);
   const [updTitle, setupdTitle] = useState(title);
@@ -47,22 +46,21 @@ const EditDataTableList = ({ click,doctors }) => {
       reader.readAsDataURL(e.target.files[0]);
     }
   };
-  
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
-    
-    const formData = new FormData();
-    
-    formData.append("id",_id);
-    formData.append("name",updName);
-    formData.append("email",updEmail);
-    formData.append("title",updTitle);
-    formData.append("image",updPic);
-    formData.append("description",updDescription);
-    formData.append("email",updEmail);
 
-    fetch("http://localhost:5000/doctors", {
+    const formData = new FormData();
+
+    formData.append("id", _id);
+    formData.append("name", updName);
+    formData.append("email", updEmail);
+    formData.append("title", updTitle);
+    formData.append("image", updPic);
+    formData.append("description", updDescription);
+    formData.append("email", updEmail);
+
+    fetch("https://fovia.herokuapp.com/doctors", {
       method: "PUT",
       body: formData,
     })
@@ -75,13 +73,9 @@ const EditDataTableList = ({ click,doctors }) => {
       .catch((error) => {
         console.error("Error:", error);
       });
-
   };
 
-  const [imgData, setImgData] = useState(
-    `data:image/jpeg;base64,${image}`
-  );
-
+  const [imgData, setImgData] = useState(`data:image/jpeg;base64,${image}`);
 
   return (
     <>

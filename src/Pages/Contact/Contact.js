@@ -1,12 +1,19 @@
-import React from "react";
-import "./Contact.css";
-import bgMap from "./../../Images/bg-map.png";
-import Header from "./../../Components/Shared/Header/Header";
 import Footer from "./../../Components/Shared/Footer/Footer";
+import Header from "./../../Components/Shared/Header/Header";
+import bgMap from "./../../Images/bg-map.png";
+import "./Contact.css";
+import { Toaster, toast } from "react-hot-toast";
 
 const Contact = () => {
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    toast.success("Message successfully!");
+  }
+
   return (
     <>
+      <Toaster position="top-right" reverseOrder={true} />
       <Header />
       <section className="contact-area ptb-100">
         <div className="container">
@@ -19,7 +26,7 @@ const Contact = () => {
           <div className="row">
             <div className="col-lg-7 col-md-12">
               <div className="contact-form">
-                <form id="contactForm">
+                <form id="contactForm" onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
@@ -129,8 +136,9 @@ const Contact = () => {
                       <i className="fas fa-envelope"></i>
                     </div>
                     <span>Email</span>
-                    <a href="#">sakib@gmail.com</a>
-                    <a href="#">sakib.code@gmail.com</a>
+                    <a href="mailto:sayedakramsakib@gmail.com">
+                      sayedakramsakib@gmail.com
+                    </a>
                   </li>
 
                   <li>
@@ -138,8 +146,7 @@ const Contact = () => {
                       <i className="fas fa-phone-volume"></i>
                     </div>
                     <span>Phone</span>
-                    <a href="#">+44 587 154756</a>
-                    <a href="#">+55 5555 14574</a>
+                    <a href="tel:+8801631907635">+880 16319 07635</a>
                   </li>
                 </ul>
               </div>
@@ -148,7 +155,7 @@ const Contact = () => {
         </div>
 
         <div className="bg-map">
-          <img src={bgMap} alt="image" />
+          <img src={bgMap} alt="Background Map" />
         </div>
       </section>
       <Footer />

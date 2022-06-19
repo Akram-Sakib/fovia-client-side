@@ -1,11 +1,10 @@
-import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import whiteLogo from "./../../../Images/white-logo.png";
 import "./Footer.css";
 
 const Footer = () => {
   return (
-    <section className="footer-area">
+    <section className="footer-area px-3">
       <Container>
         <div className="subscribe-area">
           <Row className="align-items-center">
@@ -19,7 +18,7 @@ const Footer = () => {
               </div>
             </Col>
             <Col lg={6} md={12}>
-              <div className="newsletter-form">
+              <div className="newsletter-form mt-4">
                 <input
                   type="email"
                   className="input-newsletter"

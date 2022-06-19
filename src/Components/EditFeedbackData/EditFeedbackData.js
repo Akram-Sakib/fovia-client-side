@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import { Button, TextField, IconButton } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import { Button, IconButton, TextField } from "@mui/material";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import { useState } from "react";
 
 const Input = styled("input")({
   display: "none",
@@ -25,7 +25,7 @@ const style = {
 };
 
 const EditFeedbackData = ({ click, doctors }) => {
-  const { open, handleClose, handleOpen } = click;
+  const { open, handleClose } = click;
 
   const { _id, name, title, image, feedback } = doctors;
 
@@ -33,11 +33,10 @@ const EditFeedbackData = ({ click, doctors }) => {
   const [feedbackTitle, setfeedbackTitle] = useState(title);
   const [feedbackPicture, setfeedbackPicture] = useState(image);
   const [_feedback, setfeedback] = useState(feedback);
- 
 
   const onChangePicture = (e) => {
     if (e.target.files[0]) {
-    setfeedbackPicture(e.target.files[0]);
+      setfeedbackPicture(e.target.files[0]);
       console.log("picture: ", e.target.files);
       const reader = new FileReader();
       reader.addEventListener("load", () => {
@@ -59,8 +58,8 @@ const EditFeedbackData = ({ click, doctors }) => {
     formData.append("feedback", _feedback);
 
     console.log(formData);
-    
-    fetch("http://localhost:5000/feedback", {
+
+    fetch("https://fovia.herokuapp.com/feedback", {
       method: "PUT",
       body: formData,
     })
@@ -73,7 +72,6 @@ const EditFeedbackData = ({ click, doctors }) => {
       .catch((error) => {
         console.error("Error:", error);
       });
-
   };
 
   const [imgData, setImgData] = useState(`data:image/jpeg;base64,${image}`);

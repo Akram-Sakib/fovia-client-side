@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "./Doctors.css";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "./Doctors.css";
 
 import Doctor from "../Doctor/Doctor";
 
@@ -10,11 +10,10 @@ const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/doctors")
+    fetch("https://fovia.herokuapp.com/doctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);
-
 
   const settings_1 = {
     dots: true,
@@ -23,7 +22,6 @@ const Doctors = () => {
     slidesToShow: doctors.length > 4 ? 4 : doctors.length,
     slidesToScroll: 1,
     autoplay: true,
-    infinite: true,
 
     responsive: [
       {

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import Fade from "@mui/material/Fade";
+import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import { useState } from "react";
+import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
 
 const style = {
@@ -27,7 +28,6 @@ const BookingModal = ({
   handleBookingClose,
   booking,
   date,
-  setBookingSuccess,
 }) => {
   const { user } = useAuth();
   const { name, time } = booking;
@@ -38,7 +38,7 @@ const BookingModal = ({
   };
 
   const [bookingInfo, setBookingInfo] = useState(initialInfo);
-  
+
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -56,7 +56,7 @@ const BookingModal = ({
       serviceName: name,
       date: date.toLocaleDateString(),
     };
-    fetch("http://localhost:5000/appointments", {
+    fetch("https://fovia.herokuapp.com/appointments", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -67,11 +67,12 @@ const BookingModal = ({
       .then((data) => {
         if (data.insertedId) {
           handleBookingClose();
-          setBookingSuccess(true);
+          toast.success("Appointment Booked Successfully!");
         }
-      });
+      })
+      .catch((err) => toast.error("Appointment Book Failed."));
   };
-  
+
   return (
     <Modal
       aria-labelledby="transition-modal-title"

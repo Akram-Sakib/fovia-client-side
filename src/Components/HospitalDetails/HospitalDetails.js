@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row, Button } from "react-bootstrap";
-import {  useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { useNavigate, useParams } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 

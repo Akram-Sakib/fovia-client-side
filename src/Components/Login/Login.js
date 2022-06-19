@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import "./Login.css";
-import graphicImage from "./../../Images/graphic4.svg";
-import { Container, Row, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import whiteLogo from "./../../Images/white-logo.png";
+import { useState } from "react";
+import { Button, Container, Row } from "react-bootstrap";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import graphicImage from "./../../Images/login-page.jpg";
+import whiteLogo from "./../../Images/white-logo.png";
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -99,10 +98,10 @@ const Login = () => {
                   </div>
                   <div className="page-links">
                     <Link to="/login">
-                      <button className="active">Login</button>
+                      <button class="custom-btn btn-1">Login</button>
                     </Link>
                     <Link to="/registration">
-                      <button>Register</button>
+                        <button class="custom-btn btn-1">Register</button>
                     </Link>
                   </div>
                   <form onSubmit={handleSubmit}>

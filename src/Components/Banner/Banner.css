@@ -34,13 +34,17 @@
 .img-src3 {
   background-image: url(./../../Images/BannerImage/main-banner3.jpg);
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 992px) {
     .carousel-img{
       width: 100px;
+      height: 40vh;
     }
 }
 
 @media only screen and (max-width: 768px) {
+   .carousel-img{
+      height: 30vh;
+    }
   .banner-section h1 {
     font-size: 25px;
   }
@@ -61,6 +65,9 @@
   .banner-section h1 {
     font-size: 18px;
   }
+  .carousel-img{
+      height: 40vh;
+    }
   .banner-section p {
     line-height: 1.1;
     font-size: 14px;
